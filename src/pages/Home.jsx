@@ -11,6 +11,8 @@ export default function Home()
 
     const [randomMeal, setRandomMeal] = useState([])
 
+
+
     useEffect(()=>{
         getRandomMeal().then(({ data }) => {
             setRandomMeal(data.meals[0])
@@ -28,6 +30,10 @@ export default function Home()
                 <img src={randomMeal.strMealThumb} alt="mealImage" />
             </div>
         </div>
-        <SearchList />
+        <div className="meals-container">
+            {storeSearch.map((data, index)=>
+                <SearchList key={data.mealId + index} mealId={'wat'} mealImg={data.strMealThumb} mealName={data.strMeal} />
+            )}
+        </div>
     </>
 }

@@ -28,7 +28,7 @@ export default function SearchNav()
             placeholder="Find your meal"
             onChange={(e) => setSearch(e.target.value)}
             />
-            <button type="submit">Search</button>
+            <button type="submit">🔍</button>
         </form>
     </>
 }

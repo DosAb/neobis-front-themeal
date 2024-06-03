@@ -1,17 +1,11 @@
-import useSearch from "../stores/useSearch"
 import { useState } from "react"
 
-export default function SearchList()
+export default function SearchList({mealName, mealId, mealImg})
 {
-    const storeSearch = useSearch((state)=>{ return state.searchData })
-
-
-    console.log(storeSearch)
     return<>
-        <h2>Search List</h2>
-        {storeSearch.map((data)=>{
-            return <h1 key={data.idMeal}>{data.strMeal}</h1>
-
-        })}
+    <div className="search-meal-container">
+        <img src={mealImg} alt="mealImg" />
+        <h1 key={mealId}>{mealName}</h1>
+    </div>
     </>
 }

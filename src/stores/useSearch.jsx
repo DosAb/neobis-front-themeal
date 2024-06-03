@@ -6,7 +6,6 @@ export default create((set) => {
 
     getSearchData: (data) => {
       set((state) => {
-        console.log(data)
         return { searchData: data };
       })
     },
