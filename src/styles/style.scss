@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100..900&family=Poppins:wght@300;400;500;700&display=swap');
+
+:root{
+    --main-bg-color: #000000;
+    --secondary-color: #DB6310;
+    --white: #ffffff;
+}
+
+html{
+    font-size: 10px;
+}
+
+body{
+    scroll-behavior: smooth; 
+    background-color: var(--main-bg-color);
+    color: var(--white);
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+a{
+    font-size: 1.6rem;
+    transition: all 0.5s ease-in-out;
+}
+
+a:hover{
+    color: #969696;
+}
+
+p{
+    font-size: 1.6rem;
+}
+
+h1{
+    font-family: "Big Shoulders Display", sans-serif;
+    font-size: 3.6rem;
+}
+
+span{
+    color: var(--secondary-color);
+}
+
+main{
+    padding: 0 64px;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.header{
+    margin: 32px 0 128px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.active{
+    color: #969696 !important;
+}
+

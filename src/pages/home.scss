@@ -1,0 +1,20 @@
+.hero{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    h1{
+        font-size: 12.8rem;
+        line-height: 100%;
+    }
+}
+
+.hero-circle{
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    width: 400px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: var(--secondary-color);
+}
