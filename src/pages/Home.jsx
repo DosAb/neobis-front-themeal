@@ -15,6 +15,7 @@ export default function Home()
 
     useEffect(()=>{
         getRandomMeal().then(({ data }) => {
+            console.log(data)
             setRandomMeal(data.meals[0])
         })
     },[])
@@ -32,7 +33,7 @@ export default function Home()
         </div>
         <div className="meals-container">
             {storeSearch.map((data, index)=>
-                <SearchList key={data.mealId + index} mealId={'wat'} mealImg={data.strMealThumb} mealName={data.strMeal} />
+                <SearchList key={data.idMeal} mealId={data.idMeal} mealImg={data.strMealThumb} mealName={data.strMeal} />
             )}
         </div>
     </>

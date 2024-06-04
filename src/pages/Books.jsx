@@ -1,6 +1,9 @@
+import { NavLink, Routes, Route } from "react-router-dom"
+import Detail from "./Detail"
+
 export default function Books()
 {
     return <>
-        <h1>Books</h1>
+        <h1>books</h1>
     </>
 }

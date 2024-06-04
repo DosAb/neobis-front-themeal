@@ -1,5 +1,6 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, Routes, Route } from "react-router-dom"
 import SearchNav from "./SearchNav"
+import Detail from "../pages/Detail"
 
 function Navbar() {
 
