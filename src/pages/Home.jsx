@@ -2,6 +2,7 @@ import SearchList from "../components/SearchList"
 import { getRandomMeal } from "../api"
 import './home.scss'
 import { useEffect, useState } from 'react'
+import { NavLink } from "react-router-dom"
 
 import useSearch from "../stores/useSearch"
 
@@ -21,10 +22,12 @@ export default function Home()
 
     return<>
         <div className="hero">
-            <h1>Make your<br/>
-                <span>Meal of the day</span> <br />
-                with us
-            </h1>
+            <NavLink to={randomMeal.idMeal}>
+                <h1>Make your<br/>
+                    <span>Meal of the day</span> <br />
+                    with us
+                </h1>
+            </NavLink>
             <div className="hero-circle">
                 <img src={randomMeal.strMealThumb} alt="mealImage" />
             </div>
