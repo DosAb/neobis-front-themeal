@@ -6,19 +6,52 @@ import { useEffect, useState } from "react"
 export default function Detail()
 {
     const {id} = useParams()
-    console.log(id)
 
     const [mealData, setMealData] = useState([])
+    const [mealIngredients, setMealIngredients] = useState([])
+
 
     useEffect(()=>{
         getMealDetails(id).then((data)=>{
-            setMealData(data.data.meals[0])
             console.log(data.data.meals[0])
+            setMealData(data.data.meals[0])
+            let mealCount = 1
+            const mealIngredientsArray = []
+            while(data.data.meals[0][`strIngredient${mealCount}`]){
+                // setMealIngredients
+                const mealData = {
+                    ingredient: data.data.meals[0][`strIngredient${mealCount}`],
+                    measure: data.data.meals[0][`strMeasure${mealCount}`]
+                }
+                mealIngredientsArray.push(mealData)
+                mealCount++
+            }
+            setMealIngredients(mealIngredientsArray)
         })
     },[])
 
     return (<>
-        <h1>{mealData.strMeal}</h1>
-        <img src={mealData.strMealThumb} alt="mealImg" />
+        <div className="meal-info-container">
+            <div className="meal-info">
+                <h1>{mealData.strMeal}</h1>
+                <h3>{mealData.strCategory}</h3>
+                <h3>{mealData.strArea}</h3>
+                <div className="meal-ingredients">
+                    {mealIngredients.map((value, index)=>
+                        <h2 key={value.ingredient}>
+                            {value.ingredient} - 
+                            <strong>{value.measure}</strong>
+                        </h2>
+                    )}
+                </div>
+            </div>
+            <img src={mealData.strMealThumb} alt="mealImg" />
+        </div>
+        <div className="meal-instruction">
+            <h1>instruction</h1>
+            <p>{mealData.strInstructions}</p>
+
+            <button><a href={mealData.strYoutube}>watch on youtube</a></button>
+        </div>
     </>)
 }

@@ -7,11 +7,9 @@ import useSearch from "../stores/useSearch"
 
 export default function Home()
 {
-    const storeSearch = useSearch((state)=>{ return state.searchData })
+    const storeSearch = useSearch((state)=>{ return state.searchData ?? [] })
 
     const [randomMeal, setRandomMeal] = useState([])
-
-
 
     useEffect(()=>{
         getRandomMeal().then(({ data }) => {

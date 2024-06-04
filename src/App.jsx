@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import Home from "./pages/Home"
-import Books from "./pages/Books"
+import Category from "./pages/Category"
+import Favorites from "./pages/Favorites"
 import Navbar from "./components/Navbar"
 import Detail from "./pages/Detail"
 
@@ -12,7 +13,8 @@ function App() {
         <Navbar />
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/books" element={<Books />} />
+            <Route path="/category" element={<Category />} />
+            <Route path="/favorites" element={<Favorites />} />
             <Route path="/:id" element={<Detail />} />
         </Routes>
     </main>

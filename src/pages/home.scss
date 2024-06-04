@@ -57,3 +57,28 @@
     height: 100%;
 }
 
+.meal-info-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.meal-instruction{
+    padding: 128px 0;
+    
+
+    h1{
+        font-size: 4.8rem;
+        text-align: center;
+        margin-bottom: 32px;
+    }
+
+    button{
+        font-size: 1.6rem;
+        margin: 32px 0 0;
+        padding: 8px 32px;
+        color: var(--white);
+        background: var(--secondary-color);
+        border-radius: 25px;
+    }
+}
