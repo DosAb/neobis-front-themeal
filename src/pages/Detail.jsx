@@ -40,17 +40,18 @@ export default function Detail()
                     {mealIngredients.map((value, index)=>
                         <h2 key={value.ingredient}>
                             {value.ingredient} - 
-                            <strong>{value.measure}</strong>
+                            <strong> {value.measure}</strong>
                         </h2>
                     )}
                 </div>
             </div>
-            <img src={mealData.strMealThumb} alt="mealImg" />
+            <div className="meal-img-container">
+                <img src={mealData.strMealThumb} alt="mealImg" />
+            </div>
         </div>
         <div className="meal-instruction">
             <h1>instruction</h1>
             <p>{mealData.strInstructions}</p>
-
             <button><a href={mealData.strYoutube}>watch on youtube</a></button>
         </div>
     </>)

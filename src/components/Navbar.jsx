@@ -7,7 +7,7 @@ function Navbar() {
 
     return (
         <header className="header">
-            <NavLink to={"/"} >FOOD<span>zie</span></NavLink>
+            <NavLink to={"/"} className="logo" >FOOD<span>zie</span></NavLink>
             <nav>
                 <SearchNav />
                 <NavLink to="/category" >category</NavLink>

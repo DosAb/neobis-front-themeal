@@ -1,6 +1,8 @@
 .hero{
+    margin: 256px 0 0 ;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     position: relative;
 
     h1{
@@ -11,12 +13,12 @@
 
 .hero-circle{
     right: 0;
+    overflow: hidden;
     position: absolute;
     z-index: -1;
-    width: 400px;
+    width: 600px;
     aspect-ratio: 1/1;
     border-radius: 50%;
-    background: var(--secondary-color);
 }
 
 .meals-container{
@@ -29,11 +31,43 @@
 .search-meal-container{
     text-align: center;
 
-    img{
-        border-radius: 15px;
+
+
+        
+        .meal-overlay{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: 0;
+            transition: all 0.5s ease-in-out;
+
+            &:hover{
+                opacity: 0.5;
+            }
+        }
+
+        img{
+
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
     }
+
+    h1{
+        margin-top: 1.2rem;
+        font-size: 3.2rem;
+
 }
 
+.meal-img-container{
+    position: relative;
+    aspect-ratio: 4 / 4;
+    border-radius: 15px;
+    overflow: hidden;
+}
 
 //Navigation
 .search-block{
@@ -42,18 +76,20 @@
     justify-content: center;
     border-radius: 15px;
     overflow: hidden;
+    width: 300px;
 }
 
 .search-block input {
     background-color: var(--white);
-    padding: 8px 16px;
+    padding: 10px 20px;
     transition: all .15s;
+    width: 100%;
 }
 
 .search-block button {
     background: var(--white);
     color: #fff;
-    padding: 8px 16px;
+    padding: 10px 12px;
     height: 100%;
 }
 
@@ -61,11 +97,43 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .meal-img-container{
+        width: 50%;
+    }
+
+
+}
+
+
+.meal-info{
+    h1{
+        font-size: 4.8rem;
+        margin-bottom: 1.6rem;
+    }
+
+    h3{
+        font-size: 2rem;
+        display: inline;
+        margin-right: 1rem;
+        color: var(--secondary-color);
+    }
+
+    .meal-ingredients{
+        margin-top: 1.6rem;
+
+        h2{
+            font-size: 1.6rem;
+        }
+
+        strong{
+            color: #ffac71;
+        }
+    }
 }
 
 .meal-instruction{
     padding: 128px 0;
-    
 
     h1{
         font-size: 4.8rem;
@@ -81,4 +149,68 @@
         background: var(--secondary-color);
         border-radius: 25px;
     }
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .search-block{
+        width: 250px;
+    }
+
+    .meals-container{
+        margin-top: 25.6rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero{
+        margin-top: 25.6rem;
+    }
+
+    .hero-circle{
+        width: 400px;
+    }
+
+    .search-meal-container{
+
+        h1{
+            font-size: 2.4rem;
+        }
+    }
+    
+}
+
+@media screen and (max-width: 500px) {
+    .search-block{
+        width: 200px;
+    }
+
+    .hero{
+        h1{
+            font-size: 10rem;
+        }
+    }
+
+    .meals-container{
+        margin-top: 20rem;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .hero-circle{
+        width: 300px;
+    }
+
+    .meal-instruction{
+        padding: 64px 0;
+    }
+
+    // .meal-info-container{
+    //     flex-direction: column-reverse;
+    //     gap: 2rem;
+    // }
+
+    
+    // .meal-img-container{
+    //     width: 80% !important;
+    // }
 }

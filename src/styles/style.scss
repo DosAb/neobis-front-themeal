@@ -57,9 +57,38 @@ nav{
     position: relative;
     display: flex;
     justify-content: space-between;
+
+    .logo{
+        font-size: 2.4rem;
+    }
 }
 
 .active{
     color: #969696 !important;
 }
 
+
+@media screen and (max-width: 768px) {
+    html{
+        font-size: 7px;
+    }
+
+    .header{
+        margin: 16px 0 128px;
+    }
+
+    main{
+        padding: 0 16px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    html{
+        font-size: 6px;
+    }
+
+    .header{
+        margin: 16px 0 128px;
+    }
+
+}
