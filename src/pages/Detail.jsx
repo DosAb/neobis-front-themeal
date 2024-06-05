@@ -8,20 +8,35 @@ export default function Detail()
     const {id} = useParams()
 
     const [mealData, setMealData] = useState([])
+    const [mealYoutubeEmbed, setMealYoutubeEmbed] = useState()
     const [mealIngredients, setMealIngredients] = useState([])
+
+    function getId(url) {
+        const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+        const match = url.match(regExp);
+    
+        return (match && match[2].length === 11)
+          ? match[2]
+          : null;
+    }
 
 
     useEffect(()=>{
         getMealDetails(id).then((data)=>{
-            console.log(data.data.meals[0])
-            setMealData(data.data.meals[0])
+            const meal = data.data.meals[0]
+            console.log(meal)
+            setMealData(meal)
             let mealCount = 1
             const mealIngredientsArray = []
-            while(data.data.meals[0][`strIngredient${mealCount}`]){
+
+            setMealYoutubeEmbed(getId(meal.strYoutube))
+
+            //Get all available ingerdients
+            while(meal[`strIngredient${mealCount}`]){
                 // setMealIngredients
                 const mealData = {
-                    ingredient: data.data.meals[0][`strIngredient${mealCount}`],
-                    measure: data.data.meals[0][`strMeasure${mealCount}`]
+                    ingredient: meal[`strIngredient${mealCount}`],
+                    measure: meal[`strMeasure${mealCount}`]
                 }
                 mealIngredientsArray.push(mealData)
                 mealCount++
@@ -52,7 +67,10 @@ export default function Detail()
         <div className="meal-instruction">
             <h1>instruction</h1>
             <p>{mealData.strInstructions}</p>
-            <button><a href={mealData.strYoutube}>watch on youtube</a></button>
+            <iframe width="420" height="315" allow="fullscreen;"
+                src={`https://www.youtube.com/embed/${mealYoutubeEmbed}`}>
+            </iframe>
+            {/* <button><a href={mealData.strYoutube}>watch on youtube</a></button> */}
         </div>
     </>)
 }

@@ -8,5 +8,6 @@ const instance = axios.create({
 })
 
 export const getRandomMeal = () => instance.get('random.php')
-export const getMealDetails = (id) => instance.get(`lookup.php`, { params: { i: id } })
+export const getMealDetails = (id) => instance.get(`lookup.php?i=${id}`)
 export const searchMeals = (search) => instance.get(`search.php?s=${search}`)
+export const getCategories = () => instance.get(`categories.php`)

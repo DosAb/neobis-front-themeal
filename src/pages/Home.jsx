@@ -13,9 +13,9 @@ export default function Home()
     const [randomMeal, setRandomMeal] = useState([])
 
     useEffect(()=>{
-        getRandomMeal().then(({ data }) => {
-            console.log(data)
-            setRandomMeal(data.meals[0])
+        getRandomMeal().then(( data ) => {
+            const meal = data.data.meals[0]
+            setRandomMeal(meal)
         })
     },[])
 
