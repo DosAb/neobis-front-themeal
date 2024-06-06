@@ -3,12 +3,15 @@ import { getRandomMeal } from "../api"
 import './home.scss'
 import { useEffect, useState } from 'react'
 import { NavLink } from "react-router-dom"
+import Hero from "../components/Hero"
 
 import useSearch from "../stores/useSearch"
 
 export default function Home()
 {
     const storeSearch = useSearch((state)=> state.searchData ?? [])
+
+    console.log(storeSearch)
 
     const [randomMeal, setRandomMeal] = useState([])
 
@@ -21,17 +24,8 @@ export default function Home()
 
 
     return<>
-        <div className="hero">
-            <NavLink to={randomMeal.idMeal}>
-                <h1>Make your<br/>
-                    <span>Meal of the day</span> <br />
-                    with us
-                </h1>
-            </NavLink>
-            <div className="hero-circle">
-                <img src={randomMeal.strMealThumb} alt="mealImage" />
-            </div>
-        </div>
+        <Hero mealImg={randomMeal.strMealThumb} mealId={randomMeal.idMeal} />
+
         <div className="meals-container">
             {storeSearch.map((data, index)=>
                 <SearchList key={data.idMeal} mealId={data.idMeal} mealImg={data.strMealThumb} mealName={data.strMeal} />

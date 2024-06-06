@@ -96,6 +96,11 @@
 
     .meal-img-container{
         width: 50%;
+        aspect-ratio: 4 / 3;
+
+        img{
+            object-fit: contain;
+        }
     }
 
 
