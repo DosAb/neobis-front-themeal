@@ -11,7 +11,7 @@ export default function Detail()
     const [mealYoutubeEmbed, setMealYoutubeEmbed] = useState()
     const [mealIngredients, setMealIngredients] = useState([])
 
-    function getId(url) {
+    function getYoutubeEmbed(url) {
         const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
         const match = url.match(regExp);
     
@@ -29,7 +29,7 @@ export default function Detail()
             let mealCount = 1
             const mealIngredientsArray = []
 
-            setMealYoutubeEmbed(getId(meal.strYoutube))
+            setMealYoutubeEmbed(getYoutubeEmbed(meal.strYoutube))
 
             //Get all available ingerdients
             while(meal[`strIngredient${mealCount}`]){
@@ -67,7 +67,7 @@ export default function Detail()
         <div className="meal-instruction">
             <h1>instruction</h1>
             <p>{mealData.strInstructions}</p>
-            <iframe width="420" height="315" allow="fullscreen;"
+            <iframe className="meal__iframe" allow="fullscreen;"
                 src={`https://www.youtube.com/embed/${mealYoutubeEmbed}`}>
             </iframe>
             {/* <button><a href={mealData.strYoutube}>watch on youtube</a></button> */}

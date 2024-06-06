@@ -5,29 +5,21 @@ import useSearch from "../stores/useSearch"
 
 export default function SearchNav()
 {
-    const [storeSearch, setStoreSearch] = useState(useSearch((state)=>{ return state.searchData }))
+    const getSearchData = useSearch((state)=> state.getSearchData )
 
-    const getSearchData = useSearch((state)=>{ return state.getSearchData })
+    const [search, setSearch] = useState()
 
-    const [search, setSearch] = useState("")
-    const [searchResult, setSearchResult] = useState([])
-
-    const submit = (e) => {
+    const getSearch = (e) => {
         e.preventDefault()
-        searchMeals(search).then(({ data }) => {
-            setSearchResult(data.meals)
-            getSearchData(data.meals)
+        searchMeals(search).then((data) => {
+            const meals = data.data.meals
+            getSearchData(meals)
         })
     }
 
     return<>
-         <form onSubmit={submit} className="search-block">
-            <input
-            type="tel"
-            // value=
-            placeholder="Find your meal"
-            onChange={(e) => setSearch(e.target.value)}
-            />
+         <form onSubmit={getSearch} className="search-block">
+            <input placeholder="Find your meal" onChange={(e) => setSearch(e.target.value)}/>
             <button type="submit">🔍</button>
         </form>
     </>

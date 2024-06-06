@@ -8,10 +8,10 @@ export default function Category()
     useEffect(()=>{
         getCategories().then((data)=>{
             const categoriesArray = data.data.categories
-            console.log(categoriesArray)
             setCategories(categoriesArray)
         })
     },[])
+
     return <>
         <div className="meals-container">            
         {categories.map((data)=>

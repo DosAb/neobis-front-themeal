@@ -5,7 +5,7 @@ import Favorites from "./pages/Favorites"
 import Navbar from "./components/Navbar"
 import Detail from "./pages/Detail"
 
-function App() {
+export default function App() {
 
   return (
 <>
@@ -21,5 +21,3 @@ function App() {
 </>
   )
 }
-
-export default App
