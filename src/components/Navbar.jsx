@@ -11,7 +11,6 @@ function Navbar() {
             <nav>
                 <SearchNav />
                 <NavLink to="/category" >category</NavLink>
-                <NavLink to="/favorites" >favorites</NavLink>
             </nav>
         </header>
     )

@@ -18,7 +18,7 @@ export default function SearchNav()
     }
 
     return<>
-         <form onSubmit={getSearch} className="search-block">
+         <form onSubmit={getSearch} className="search__form">
             <input placeholder="Find your meal" onChange={(e) => setSearch(e.target.value)}/>
             <button type="submit">🔍</button>
         </form>

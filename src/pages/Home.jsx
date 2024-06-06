@@ -27,9 +27,10 @@ export default function Home()
         <Hero mealImg={randomMeal.strMealThumb} mealId={randomMeal.idMeal} />
 
         <div className="meals-container">
-            {storeSearch.map((data, index)=>
+            {storeSearch.length !== 0 && storeSearch.map((data, index)=>
                 <SearchList key={data.idMeal} mealId={data.idMeal} mealImg={data.strMealThumb} mealName={data.strMeal} />
             )}
+            {/* {storeSearch.length == 0 && <h2>find a meal</h2>} */}
         </div>
     </>
 }
